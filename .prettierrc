@@ -1,0 +1,22 @@
+{
+  "jsxSingleQuote": false,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "semi": false,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "importOrder": [
+    "^react(.*)$",
+    "^@trilogy-ds/(.*)$",
+    "^@components(.*)$",
+    "^@services/(.*)$",
+    "^@types(.*)$",
+    "^@assets/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderParserPlugins": ["classProperties", "decorators-legacy", "typescript", "jsx"],
+  "plugins": ["@trivago/prettier-plugin-sort-imports"]
+}
