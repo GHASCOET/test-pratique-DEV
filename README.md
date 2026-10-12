@@ -4,9 +4,8 @@ Petit projet d'évaluation : un formulaire **« Mes informations personnelles »
 construit avec le design system **Trilogy** (`@trilogy-ds/react`), alimenté par un
 **appel REST** vers une API mockée en local (MSW).
 
-L'objectif n'est **pas** de produire du code parfait, mais d'évaluer votre
-capacité à **analyser un existant**, à **lire une documentation d'API (swagger)**
-et à **reproduire un pattern** de code existant.
+L'objectif est d'évaluer la capacité à structurer une solution front avancée :
+transformations de données, fonctions pures, et raisonnement algorithmique.
 
 ## Démarrer
 
@@ -15,9 +14,8 @@ npm install
 npm run dev
 ```
 
-Ouvrez [http://localhost:3000](http://localhost:3000) : l'énoncé complet
-(Partie A — Analyse / Partie B — Code) s'affiche directement dans l'application,
-au-dessus du formulaire.
+Ouvrez [http://localhost:3000](http://localhost:3000) : l'énoncé de l'exercice
+s'affiche directement dans l'application, au-dessus du formulaire.
 
 ## Scripts disponibles
 
@@ -32,12 +30,13 @@ npm run preview   # Prévisualise le build de prod
 ## Structure
 
 | Fichier / dossier | Rôle |
-|---|---|
+| --- | --- |
 | `public/swagger.yaml` | Documentation OpenAPI de l'API (tous les champs disponibles) |
 | `src/app.tsx` | Compose `Statement` (énoncé) + `Exercise` (formulaire) dans le `Layout` |
 | `src/layout.tsx` | En-tête + `TrilogyProvider` |
-| `src/components/statement.tsx` | L'énoncé du test (Parties A & B) |
-| `src/components/exercise.tsx` | Le formulaire Trilogy à compléter (3 TODOs) |
+| `src/components/statement.tsx` | Énoncé de l'exercice 1 (comptage par catégorie, recherche, tri) |
+| `src/components/exercise.tsx` | Liste des offres mobiles à compléter |
+| `src/services/offer.ts` | `OfferService` : appel REST `GET /api/offers` |
 | `src/services/client.ts` | `ClientService` : appels REST (`GET` / `PUT /api/clients/:id`) |
 | `src/types/` | Types `Client`, `ClientUpdate`, `Adresse`, `Preferences` |
 | `src/mocks/handlers.ts` | Le mock REST (données renvoyées par l'API) |
@@ -47,13 +46,11 @@ Alias de chemins disponibles (voir `vite.config.ts` / `tsconfig.paths.json`) :
 
 ## Pour l'évaluateur
 
-Le formulaire n'expose volontairement que 4 champs (civilité, prénom, nom, e-mail)
-alors que l'API en renvoie beaucoup plus (téléphone, date de naissance, adresse,
-préférences newsletter/SMS, etc.). Le candidat doit **lire le swagger**, repérer
-les champs non exploités, juger leur pertinence (Partie A, à répondre dans un
-fichier `REPONSES.md` à créer), puis brancher 2 à 3 champs dans
-`src/components/exercise.tsx` en suivant le pattern déjà en place (Partie B).
+Le niveau attendu est confirmé/senior :
 
-Point d'analyse clé : certains champs du schéma `Client` (ex. `segment`,
-`dateCreationCompte`, `emailVerifie`, `telephoneFixe`) n'apparaissent **pas**
-dans `ClientUpdate` → ils ne doivent pas être rendus modifiables.
+- conception de logique déclarative pilotée par configuration,
+- usage pertinent de `map` / `filter` / `reduce` / `sort`,
+- normalisation de payload et gestion des champs optionnels,
+- traçabilité des modifications avec ordre déterministe.
+
+A reference solution is available in `ANSWERS_EXERCISE_1.md`.

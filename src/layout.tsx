@@ -13,13 +13,13 @@ export function Layout({ children }: Readonly<LayoutProps>) {
         <Container>
           <View>
             <Title markup={TitleMarkup.H1} level={TitleLevels.ONE}>
-              Espace client — Test technique
+              Customer area — Technical test
             </Title>
           </View>
         </Container>
       </Hero>
       {children}
-      <footer className="footer">Bonne chance 🚀</footer>
+      <footer className="footer">Good luck 🚀</footer>
     </>
   )
 }

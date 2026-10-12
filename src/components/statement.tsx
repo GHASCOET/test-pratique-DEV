@@ -1,23 +1,12 @@
-import { Divider, Section, Spacer, SpacerSize, Text, Title, TitleLevels, TypographyBold } from '@trilogy-ds/react'
+import { Section, Spacer, SpacerSize, Text, Title, TitleLevels, TypographyBold } from '@trilogy-ds/react'
 
 export function Statement() {
   return (
     <Section>
-      <Title level={TitleLevels.TWO}>Énoncé</Title>
+      <Title level={TitleLevels.TWO}>Statement</Title>
       <Text>
-        Ce formulaire « Mes informations personnelles » est construit avec le design system{' '}
-        <span className="has-text-weight-semibold">Trilogy</span> et alimenté par un appel REST vers une API mockée en
-        local (MSW). Consultez <code>public/swagger.yaml</code> pour la documentation complète de l'API, et ouvrez
-        l'onglet <span className="has-text-weight-semibold">Réseau</span> du navigateur pour voir la réponse de{' '}
-        <code>GET /api/clients/123456</code>.
-      </Text>
-
-      <Spacer size={SpacerSize.FIVE} />
-
-      <Title level={TitleLevels.THREE}>Partie A — Analyse (sans code)</Title>
-      <Text>
-        Ouvrez <code>public/swagger.yaml</code> et la réponse de l'API, puis répondez dans un fichier{' '}
-        <code>REPONSES.md</code> (à créer) :
+        Our sales team needs a quick overview of the mobile plans returned by the offers API (GET /api/offers). Using
+        the list displayed below and the API response, implement the following 3 features:
       </Text>
       <div>
         <div>
@@ -25,7 +14,8 @@ export function Statement() {
             Question 1
           </Text>
           <Text>
-            Quels champs sont renvoyés par l'API mais ne sont PAS affichés dans le formulaire actuel ? Listez-les.
+            Display a summary showing how many plans belong to each category, for example "5G (4)". Each category must
+            appear only once.
           </Text>
           <Spacer size={SpacerSize.THREE} />
         </div>
@@ -34,8 +24,7 @@ export function Statement() {
             Question 2
           </Text>
           <Text>
-            Parmi ces champs, lesquels vous semblent pertinents à ajouter au formulaire pour un client, et pourquoi ?
-            (pensez à l'utilité pour l'utilisateur)
+            Make the search field work: only display plans whose name contains the typed text (case insensitive).
           </Text>
           <Spacer size={SpacerSize.THREE} />
         </div>
@@ -44,56 +33,17 @@ export function Statement() {
             Question 3
           </Text>
           <Text>
-            Y a-t-il des champs du schéma <code>Client</code> qu'il ne faudrait pas rendre modifiables par le client ?
-            Lesquels, et pourquoi ? (indice : comparez les schémas <code>Client</code> et <code>ClientUpdate</code>)
+            Clicking the "Sort by price" button sorts the displayed plans from cheapest to most expensive. Clicking it
+            again reverses the order. Sorting must keep working while a search is active.
           </Text>
+          <Spacer size={SpacerSize.THREE} />
         </div>
       </div>
-
-      <Spacer size={SpacerSize.FIVE} />
-      <Divider />
-      <Spacer size={SpacerSize.FIVE} />
-
-      <Title level={TitleLevels.THREE}>Partie B — Évolution guidée (un peu de code)</Title>
-      <Text>
-        Dans <code>src/components/exercise.tsx</code>, en vous inspirant des champs déjà en place (<code>useState</code>{' '}
-        → initialisation dans le <code>useEffect</code> → composant Trilogy → envoi dans <code>handleSubmit</code>),
-        complétez les 3 TODOs du fichier :
-      </Text>
       <div>
-        <div>
-          <Text typo={TypographyBold.TEXT_WEIGHT_SEMIBOLD} marginless>
-            1. Téléphone mobile
-          </Text>
-          <Text>
-            Ajoutez le champ <code>telephoneMobile</code> au formulaire.
-          </Text>
-          <Spacer size={SpacerSize.THREE} />
-        </div>
-        <div>
-          <Text typo={TypographyBold.TEXT_WEIGHT_SEMIBOLD} marginless>
-            2. Date de naissance
-          </Text>
-          <Text>
-            Ajoutez le champ <code>dateNaissance</code> au formulaire.
-          </Text>
-          <Spacer size={SpacerSize.THREE} />
-        </div>
-        <div>
-          <Text typo={TypographyBold.TEXT_WEIGHT_SEMIBOLD} marginless>
-            3. (Bonus) Newsletter
-          </Text>
-          <Text>
-            Ajoutez un interrupteur pour la préférence <code>preferences.newsletter</code> — le composant Trilogy
-            s'appelle <code>Switch</code>.
-          </Text>
-        </div>
+        <Text>
+          <span className="has-text-weight-semibold">Exercise duration:</span> 30 minutes
+        </Text>
       </div>
-
-      <Spacer size={SpacerSize.FIVE} />
-      <Text>
-        <span className="has-text-weight-semibold">Durée indicative :</span> 45 minutes à 1 heure.
-      </Text>
     </Section>
   )
 }
