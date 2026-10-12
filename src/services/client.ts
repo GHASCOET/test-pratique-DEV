@@ -14,7 +14,7 @@ export class ClientService {
       if (!response.ok) {
         throw new Error(`Erreur API (${response.status})`)
       }
-      return response.json()
+      return await response.json()
     } catch {
       if (clientId === this.fallbackClient.id) {
         return this.fallbackClient
@@ -34,7 +34,7 @@ export class ClientService {
       if (!response.ok) {
         throw new Error(`Erreur API (${response.status})`)
       }
-      return response.json()
+      return await response.json()
     } catch {
       if (clientId !== this.fallbackClient.id) {
         throw new Error('Client introuvable')
