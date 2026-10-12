@@ -9,11 +9,15 @@ import '@assets/style.css'
 import App from './app'
 
 async function enableMocking() {
-  const { worker } = await import('./mocks/browser')
-  return worker.start({ onUnhandledRequest: 'bypass' })
+  try {
+    const { worker } = await import('./mocks/browser')
+    await worker.start({ onUnhandledRequest: 'bypass' })
+  } catch (error) {
+    console.warn('MSW indisponible, fallback local activé.', error)
+  }
 }
 
-enableMocking().then(() => {
+enableMocking().finally(() => {
   ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
       <TrilogyProvider>

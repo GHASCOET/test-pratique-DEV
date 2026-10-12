@@ -2,35 +2,11 @@ import type { Client } from '@types'
 
 import { HttpResponse, http } from 'msw'
 
+import { mockClient } from './data/client'
+
 // Données client renvoyées par le mock REST.
 // Elles respectent le schéma décrit dans public/swagger.yaml.
-const client: Client = {
-  id: '123456',
-  civilite: 'MADAME',
-  prenom: 'Camille',
-  nom: 'Durand',
-  email: 'camille.durand@email.fr',
-  emailVerifie: true,
-  telephoneMobile: '+33612345678',
-  telephoneFixe: '+33145678900',
-  dateNaissance: '1990-06-15',
-  adressePostale: {
-    numero: '12',
-    libelleVoie: 'Rue de la République',
-    complement: 'Bâtiment B, 3e étage',
-    codePostal: '75011',
-    ville: 'Paris',
-    pays: 'France',
-  },
-  preferences: {
-    newsletter: true,
-    offresPartenaires: false,
-    contactSms: true,
-    langue: 'fr',
-  },
-  segment: 'GRAND_PUBLIC',
-  dateCreationCompte: '2018-03-22T10:15:00Z',
-}
+const client: Client = mockClient
 
 export const handlers = [
   // GET /api/clients/:clientId
