@@ -6,6 +6,7 @@ import {
   ButtonVariant,
   Column,
   Columns,
+  Input,
   StatusState,
   Text,
   TextLevels,
@@ -27,7 +28,7 @@ export function Exercise() {
   const [error, setError] = useState<string | null>(null)
 
   const filterOffersByCategory = (category: string) => {
-    console.log('Filter by category:', category)
+    console.log('Filter by category:', category, categoryColors[category])
     // TODO
   }
 
@@ -56,6 +57,14 @@ export function Exercise() {
     <Columns multiline gap={4}>
       <Column size={12}>
         <Title level={TitleLevels.THREE}>Mobile plans</Title>
+      </Column>
+
+      <Column size={12} desktopSize={6}>
+        <Input label="Search a plan" placeholder="e.g. sensation" />
+      </Column>
+
+      <Column size={12} desktopSize={6}>
+        <Button variant={ButtonVariant.SECONDARY}>Sort by price</Button>
       </Column>
 
       {offers.map((offer) => (
