@@ -55,7 +55,8 @@ Durée annoncée : 30 minutes. Points d'attention :
 
 Questions 4 à 6 et bonus (filtre par catégorie, sur le modèle du test films), +15 minutes :
 
-- liste unique et triée depuis un champ tableau (`flatMap` + `Set` + `sort`),
+- réutilisation du comptage de la question 1 pour générer les boutons (pas de seconde
+  agrégation), triés par ordre alphabétique,
 - filtre dérivé de l'état, combiné à la recherche et au tri, ce qui rend le Reset trivial,
 - bouton actif mis en évidence, couleur appliquée depuis `categoryColors`,
 - bonus multi-sélection : bascule non mutante, choix argumenté entre `every` (toutes

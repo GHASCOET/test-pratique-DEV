@@ -45,8 +45,8 @@ export function Statement() {
             Question 4
           </Text>
           <Text>
-            Turn the categories into filter buttons: list them without duplicates, sorted in alphabetical order, each
-            button using the category color from categoryColors.
+            Turn the summary of question 1 into filter buttons: one button per category with its count, e.g. "5G (4)",
+            sorted in alphabetical order and using the category color from categoryColors.
           </Text>
           <Spacer size={SpacerSize.THREE} />
         </div>
